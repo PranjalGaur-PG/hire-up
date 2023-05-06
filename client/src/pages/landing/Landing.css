@@ -1,0 +1,16 @@
+.land-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.land-btn {
+  background-color: rgba(127, 255, 212, 0.603);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 240px;
+}

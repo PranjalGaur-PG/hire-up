@@ -1,0 +1,11 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 4rem;
+  background-color: aliceblue;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-evenly;
+}
