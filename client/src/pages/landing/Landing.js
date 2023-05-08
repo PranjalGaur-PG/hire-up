@@ -1,26 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Landing.css";
 
 const Landing = () => {
   const navigate = useNavigate();
-
-  const handleSeeker = () => {
-    navigate("/logsign", {
-      state: {
-        giver: false,
-        seeker: true,
-      },
-    });
-  };
-  const handleGiver = () => {
-    navigate("/logsign", {
-      state: {
-        giver: true,
-        seeker: false,
-      },
-    });
-  };
 
   return (
     <div className="land-container">
@@ -31,20 +14,18 @@ const Landing = () => {
         A Early Talent Engagement & Hiring Platform
       </div>
       <div className="flex py-10">
-        <div
-          className="mx-6 land-btn px-6 py-4 flex flex-col cursor-pointer"
-          onClick={handleSeeker}
-        >
-          <div className="font-light">Enter as</div>
-          <div className="font-bold text-2xl">Job Seeker</div>
-        </div>
-        <div
-          className="mx-6 land-btn px-6 py-4 flex flex-col cursor-pointer"
-          onClick={handleGiver}
-        >
-          <div className="font-light">Enter as</div>
-          <div className="font-bold text-2xl">Job Giver</div>
-        </div>
+        <Link to="/user">
+          <div className="mx-6 land-btn px-6 py-4 flex flex-col cursor-pointer">
+            <div className="font-light">Enter as</div>
+            <div className="font-bold text-2xl">User</div>
+          </div>
+        </Link>
+        <Link to="/org">
+          <div className="mx-6 land-btn px-6 py-4 flex flex-col cursor-pointer">
+            <div className="font-light">Enter as</div>
+            <div className="font-bold text-2xl">Organization</div>
+          </div>
+        </Link>
       </div>
     </div>
   );
