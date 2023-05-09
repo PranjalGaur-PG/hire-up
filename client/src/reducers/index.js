@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import navdisplay from "./navdisplay";
+import auth from "./auth";
 
 export default combineReducers({
-  navdisplay,
+  auth,
 });

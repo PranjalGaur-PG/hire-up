@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import "./user.css";
+import { registerUser } from "../../actions/auth";
+import { connect } from "react-redux";
 
-const SignupUser = ({ setpage }) => {
+const SignupUser = ({ setpage, registerUser }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,6 +23,15 @@ const SignupUser = ({ setpage }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    if (password !== password2) {
+      // setAlert("Passwords do not match !", "danger", 4000);
+      alert("Passwords do not match !");
+    } else {
+      registerUser({ name, email, password });
+
+      console.log("Success");
+    }
   };
 
   return (
@@ -72,7 +83,7 @@ const SignupUser = ({ setpage }) => {
         </div>
         <input type="submit" className="btn-user" value="Register" />
       </form>
-      <p className="my-1">
+      <div className="my-1">
         Already have an account?{" "}
         <div
           className="btn-user text-center cursor-pointer"
@@ -80,9 +91,9 @@ const SignupUser = ({ setpage }) => {
         >
           Sign In
         </div>
-      </p>
+      </div>
     </React.Fragment>
   );
 };
 
-export default SignupUser;
+export default connect(null, { registerUser })(SignupUser);
