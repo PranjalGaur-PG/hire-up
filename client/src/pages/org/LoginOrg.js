@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { connect } from "react-redux";
+import { loginOrg } from "../../actions/auth";
 import "./org.css";
 
-const LoginOrg = ({ setpage }) => {
+const LoginOrg = ({ setpage, loginOrg }) => {
   const [formData, setFormData] = useState({
     orgID: "",
     password: "",
@@ -19,6 +21,10 @@ const LoginOrg = ({ setpage }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    loginOrg({ orgID, password });
+
+    console.log("Success");
   };
 
   return (
@@ -51,7 +57,7 @@ const LoginOrg = ({ setpage }) => {
       <br />
       <br />
       <br />
-      <p className="my-1">
+      <div className="my-1">
         Don't have an account?{" "}
         <div
           className="btn-user cursor-pointer text-center"
@@ -59,9 +65,9 @@ const LoginOrg = ({ setpage }) => {
         >
           Sign Up
         </div>
-      </p>
+      </div>
     </React.Fragment>
   );
 };
 
-export default LoginOrg;
+export default connect(null, { loginOrg })(LoginOrg);

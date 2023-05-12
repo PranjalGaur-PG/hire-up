@@ -1,9 +1,17 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { connect } from "react-redux";
 import "./Landing.css";
 
-const Landing = () => {
-  const navigate = useNavigate();
+const Landing = ({ isAuthenticated, role }) => {
+  // Redirect if logged in
+  if (isAuthenticated && role === "user") {
+    return <Navigate to="/user-dashboard" />;
+  }
+
+  if (isAuthenticated && role === "org") {
+    return <Navigate to="/org-dashboard" />;
+  }
 
   return (
     <div className="land-container">
@@ -31,4 +39,9 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  role: state.auth.role,
+});
+
+export default connect(mapStateToProps, {})(Landing);

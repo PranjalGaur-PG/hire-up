@@ -1,11 +1,20 @@
-.nav-container {
+.navbar {
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 4rem;
-  background-color: aliceblue;
+  padding: 10px 40px;
+}
+
+.nav-title {
+  font-size: 48px;
+  font-weight: 700;
 }
 
 .nav-list {
   display: flex;
-  justify-content: space-evenly;
+}
+
+.nav-item {
+  margin: 20px;
+  font-size: 20px;
+  font-weight: 500;
 }

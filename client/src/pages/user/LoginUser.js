@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import "./user.css";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/auth";
 
-const LoginUser = ({ setpage }) => {
+const LoginUser = ({ setpage, loginUser }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -19,6 +21,9 @@ const LoginUser = ({ setpage }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    loginUser({ email, password });
+
+    console.log("Success");
   };
 
   return (
@@ -51,7 +56,7 @@ const LoginUser = ({ setpage }) => {
       <br />
       <br />
       <br />
-      <p className="my-1">
+      <div className="my-1">
         Don't have an account?{" "}
         <div
           className="btn-user cursor-pointer text-center"
@@ -59,9 +64,9 @@ const LoginUser = ({ setpage }) => {
         >
           Sign Up
         </div>
-      </p>
+      </div>
     </React.Fragment>
   );
 };
 
-export default LoginUser;
+export default connect(null, { loginUser })(LoginUser);
