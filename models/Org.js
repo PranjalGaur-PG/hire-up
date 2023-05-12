@@ -20,6 +20,14 @@ const OrgSchema = new mongoose.Schema({
   location: {
     type: String,
   },
+  jobs: [
+    {
+      job: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "job",
+      },
+    },
+  ],
 });
 
 module.exports = Org = mongoose.model("org", OrgSchema);
