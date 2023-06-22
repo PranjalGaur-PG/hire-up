@@ -14,7 +14,7 @@ const UserNavbar = ({ logout }) => {
       </div>
       <div className="nav-list">
         <div className="nav-item">
-          <Link to="/org-dashboard">Dashboard</Link>
+          <Link to="/user-dashboard">Dashboard</Link>
         </div>
         <div className="nav-item">
           <Link to="/jobs">All Jobs</Link>

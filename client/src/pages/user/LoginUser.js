@@ -50,18 +50,19 @@ const LoginUser = ({ setpage, loginUser }) => {
             minLength="6"
           />
         </div>
-        <input type="submit" className="btn-user" value="Login" />
+        <input
+          type="submit"
+          className="btn-user cursor-pointer"
+          value="Login"
+        />
       </form>
 
       <br />
       <br />
       <br />
-      <div className="my-1">
+      <div className="my-1 cursor-pointer">
         Don't have an account?{" "}
-        <div
-          className="btn-user cursor-pointer text-center"
-          onClick={() => setPageToSignup()}
-        >
+        <div className="btn-user text-center" onClick={() => setPageToSignup()}>
           Sign Up
         </div>
       </div>

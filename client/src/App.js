@@ -15,8 +15,8 @@ import store from "./store";
 
 import LandingOrg from "./pages/org/LandingOrg";
 import LandingUser from "./pages/user/LandingUser";
+import Job from "./pages/jobPostings/Job";
 
-import JobPostings from "./pages/jobPostings/JobPostings";
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
 
@@ -38,7 +38,7 @@ const App = () => {
           <Route path="/" element={<Landing />} />
           <Route path="/org" element={<LandingOrg />} />
           <Route path="/user" element={<LandingUser />} />
-          <Route path="/jobs" element={<JobPostings />} />
+          <Route path="/job" element={<Job />} />
           <Route
             path="user-dashboard"
             element={<PrivateRoute component={UserDashboard} />}
